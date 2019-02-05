@@ -1,9 +1,11 @@
 import React from 'react';
 
-const Folder = ({ film }) => {
-    const { title, release_year, director, opening_crawl } = film;
+const Folder = ({ movie }) => {
+    const { title, release_date, director, opening_crawl } = movie;
+    const release_year = release_date.substring(0, 4);
+    
     return (
-        <div className="">
+        <div>
             {/* <img src="" alt="" /> */}
             <h3>{title}</h3>
             <p>Lançado em {release_year}</p>
@@ -11,7 +13,7 @@ const Folder = ({ film }) => {
             <p>
                 Sinopse:
                 <br/>
-                {opening_crawl}
+                <i>{opening_crawl}</i>
             </p>
         </div>
     );
