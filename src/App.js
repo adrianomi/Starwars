@@ -1,6 +1,7 @@
 import React from 'react';
 import FolderList from './components/FolderList/FolderList';
 import 'tachyons';
+import './App.css';
 
 class App extends React.Component {
   constructor() {
@@ -32,8 +33,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>STAR WARS</h1>
-        <h2>Filmes</h2>
+        <h1 className="f2 tc">STAR WARS</h1>
+        <h2 className="f3 tc">Filmes</h2>
         <FolderList movies={this.state.movies} />
       </div>
     );

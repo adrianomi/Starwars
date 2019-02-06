@@ -3,7 +3,7 @@ import Folder from '../Folder/Folder';
 
 const FolderList = ({ movies }) => {
     return (
-        <div>
+        <div className="pa2">
             {
                 movies.map(movie => {
                     return (
