@@ -7,7 +7,7 @@ const FolderList = ({ movies }) => {
             {
                 movies.map(movie => {
                     return (
-                        <Folder movie={movie} />
+                        <Folder movie={movie} key={movie['episode_id']} />
                     );
                 })
             }

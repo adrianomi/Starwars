@@ -15,15 +15,8 @@ class Folder extends React.Component {
     }
 
     render() {
-        const { title, release_date, director, opening_crawl, episode_id } = this.props.movie;
+        const { title, release_date, episode_id } = this.props.movie;
         const release_year = release_date.substring(0, 4);
-
-        let brief_opening_crawl;
-        if (opening_crawl.length > 170) {
-            brief_opening_crawl = opening_crawl.substring(0, 170) + " ...";
-        } else {
-            brief_opening_crawl = opening_crawl;
-        }
 
         return (
             <div className="fl w-100 w-50-m w-33-l pa4 tj dim pointer">
