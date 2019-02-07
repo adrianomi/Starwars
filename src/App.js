@@ -12,17 +12,10 @@ class App extends React.Component {
   }
 
   async getMovies() {
-    try {
-      const response = await fetch("https://swapi.co/api/films/?format=json");
-      if (response.ok) {
-        const jsonResponse = await response.json();
-        this.setState({ movies: jsonResponse.results });
-      } else {
-        // TODO: Tratar falha do API call
-      }
-
-    } catch (error) {
-      // TODO: Tratar falha do API call
+    const response = await fetch("https://swapi.co/api/films/?format=json");
+    if (response.ok) {
+      const jsonResponse = await response.json();
+      this.setState({ movies: jsonResponse.results });
     }
   }
 

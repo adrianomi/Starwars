@@ -1,15 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-let modalStyle = {
-    position: 'fixed',
-    top: '0px',
-    backgroundColor: 'white',
-    display: 'block',
-    width: '100%',
-    height: '100%',
-    overflowY: 'auto'
-}
+import './Modal.css'
 
 class Modal extends React.Component {
     constructor(props) {
@@ -52,61 +43,66 @@ class Modal extends React.Component {
     }
 
     render() {
-        const { title, release_date, director, opening_crawl } = this.props.movie;
+        const { title, release_date, director, opening_crawl, episode_id } = this.props.movie;
         const { characters, planets, species, starships } = this.state;
         const release_year = release_date.substring(0, 4);
 
         return ReactDOM.createPortal(
-            <div style={modalStyle}>
-                <div className="fl w-100 pa4 tj">
-                    {/* <img src="" alt="" /> */}
-                    <h3>{title} <span className="f7">{release_year}</span></h3>
-                    <p>Dirigido por {director}</p>
-                    <p>
-                        Sinopse:
+            <div className="container" onClick={this.props.toogleModal}>
+                <div className="modal" onClick={e => e.stopPropagation()}>
+                    <div className="fl w-100 pa4 tj">
+                        <h3 className="movie-title" >{title} <span className="f7">{release_year}</span></h3>
+                        <img className="poster" src={require(`../../img/${episode_id}-min.jpg`)} alt="movie_poster" />
+                        <p class="direcao">Dirigido por {director}</p>
+                        <p>
+                            Sinopse:
                     <br />
-                        <i>{opening_crawl}</i>
-                    </p>
-                    <p>
-                        Personagens:
+                            <i>{opening_crawl}</i>
+                        </p>
+                        <p>
+                            Personagens:
                         <ul>
-                            {characters.map(character => {
-                                return (
-                                    <li>{character}</li>
-                                );
-                            })}
-                        </ul>
-                    </p>
-                    <p>
-                        Planetas:
+                                {characters.map(character => {
+                                    return (
+                                        <li>{character}</li>
+                                    );
+                                })}
+                            </ul>
+                        </p>
+                        <p>
+                            Planetas:
                         <ul>
-                            {planets.map(planet => {
-                                return (
-                                    <li>{planet}</li>
-                                );
-                            })}
-                        </ul>
-                    </p>
-                    <p>
-                        Espécies:
+                                {planets.map(planet => {
+                                    return (
+                                        <li>{planet}</li>
+                                    );
+                                })}
+                            </ul>
+                        </p>
+                        <p>
+                            Espécies:
                         <ul>
-                            {species.map(specie => {
-                                return (
-                                    <li>{specie}</li>
-                                );
-                            })}
-                        </ul>
-                    </p>
-                    <p>
-                        Naves:
+                                {species.map(specie => {
+                                    return (
+                                        <li>{specie}</li>
+                                    );
+                                })}
+                            </ul>
+                        </p>
+                        <p>
+                            Naves:
                         <ul>
-                            {starships.map(starship => {
-                                return (
-                                    <li>{starship}</li>
-                                );
-                            })}
-                        </ul>
-                    </p>
+                                {starships.map(starship => {
+                                    return (
+                                        <li>{starship}</li>
+                                    );
+                                })}
+                            </ul>
+                        </p>
+                    </div>
+                    <button className="voltar" onClick={this.props.toogleModal}>
+                        Voltar
+                </button>
                 </div>
             </div>,
             this.container
