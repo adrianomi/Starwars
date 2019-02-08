@@ -9,13 +9,10 @@ h1, h2 {
 }
 
 #ordem {
-    position: absolute;
     width: 120px;
     height: 40px;
-    top: 60px;
-    right: 70px;
     display: block;
-    margin-top: 50px;
+    margin: 50px auto 10px;
     background: none;
     border: none;
     outline: none;

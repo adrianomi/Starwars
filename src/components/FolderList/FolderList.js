@@ -1,9 +1,10 @@
 import React from 'react';
 import Folder from '../Folder/Folder';
+import './FolderList.css';
 
 const FolderList = ({ movies }) => {
     return (
-        <div className="pa2">
+        <div className="pa2 mw8 folder-list">
             {
                 movies.map(movie => {
                     return (
